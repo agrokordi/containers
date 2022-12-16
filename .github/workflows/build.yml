@@ -54,8 +54,8 @@ jobs:
     runs-on: ubuntu-latest
     name: build image for kubectl
     env:
-      KUBECTL_VERSION: "1.22.11"
-      KUBECTL_SHA256: "a61c697e3c9871da7b609511248e41d9c9fb6d9e50001425876676924761586b"
+      KUBECTL_VERSION: "1.24.4"
+      KUBECTL_SHA256: "4a76c70217581ba327f0ad0a0a597c1a02c62222bb80fbfea4f2f5cb63f3e2d8"
     steps:
     - uses: actions/checkout@v3
     - uses: docker/login-action@v2
