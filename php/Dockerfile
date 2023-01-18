@@ -1,6 +1,6 @@
-FROM php:8.2.0-alpine
+FROM php:8.2.1-alpine
 
-COPY --from=mlocati/php-extension-installer:1.5.51 /usr/bin/install-php-extensions /usr/local/bin/install-php-extensions
+COPY --from=mlocati/php-extension-installer:1.5.52 /usr/bin/install-php-extensions /usr/local/bin/install-php-extensions
 
 RUN set -xe \
  && apk add --no-cache unzip \
