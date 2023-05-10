@@ -1,10 +1,10 @@
-FROM php:8.2.3-alpine
+FROM php:8.2.5-alpine
 
-COPY --from=mlocati/php-extension-installer:2.1.9 /usr/bin/install-php-extensions /usr/local/bin/install-php-extensions
+COPY --from=mlocati/php-extension-installer:2.1.22 /usr/bin/install-php-extensions /usr/local/bin/install-php-extensions
 
 RUN set -xe \
  && apk add --no-cache unzip \
- && install-php-extensions opcache sockets pcntl pdo_pgsql pdo_sqlsrv gd decimal bcmath intl zip \
+ && install-php-extensions opcache sockets pcntl pdo_pgsql pdo_sqlsrv gd decimal bcmath intl zip soap \
  && rm /usr/local/bin/install-php-extensions \
  && mkdir /app
 
