@@ -4,7 +4,7 @@ COPY --from=mlocati/php-extension-installer:2.1.25 /usr/bin/install-php-extensio
 
 RUN set -xe \
  && apk add --no-cache unzip \
- && install-php-extensions opcache sockets pcntl pdo_pgsql pdo_sqlsrv gd decimal bcmath intl zip soap openswoole \
+ && install-php-extensions opcache sockets pcntl pdo_pgsql pdo_sqlsrv gd decimal bcmath intl zip soap \
  && rm /usr/local/bin/install-php-extensions \
  && mkdir /app
 
