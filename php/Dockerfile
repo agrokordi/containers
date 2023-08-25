@@ -1,4 +1,4 @@
-FROM php:8.2.9
+FROM php:8.2.8
 
 COPY --from=mlocati/php-extension-installer:2.1.45 /usr/bin/install-php-extensions /usr/local/bin/install-php-extensions
 
