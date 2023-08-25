@@ -4,6 +4,7 @@ COPY --from=mlocati/php-extension-installer:2.1.45 /usr/bin/install-php-extensio
 
 RUN set -xe \
 # && apk add --no-cache unzip \
+ && apt-get update \
  && apt-get install -y unzip \
  && apt-get clean \
 #    && apt-get install -y unzip locales \
