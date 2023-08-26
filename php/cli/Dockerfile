@@ -12,7 +12,6 @@ RUN set -xe \
  && rm /usr/local/bin/install-php-extensions \
  && mkdir /app
 
-COPY config/fpm.ini /usr/local/etc/php-fpm.conf
 COPY config/php.ini /usr/local/etc/php/php.ini
 
 WORKDIR /app
