@@ -4,7 +4,9 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN set -xe \
  && rm -r /etc/nginx \
- && mkdir -p /app/public
+ && mkdir -p /app/public \
+ && touch /app/public/index.php \
+ && chmod -R u=rwX,g=rX,o=rX /app
 
 COPY config /etc/nginx
 
