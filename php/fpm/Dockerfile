@@ -8,7 +8,7 @@ RUN set -xe \
  && apt-get install -y unzip \
  && apt-get clean \
 #    && apt-get install -y unzip locales \
- && install-php-extensions opcache pdo_pgsql pdo_sqlsrv gd decimal bcmath intl zip soap \
+ && install-php-extensions opcache sockets pcntl pdo_pgsql pdo_sqlsrv gd decimal bcmath intl zip soap \
  && rm /usr/local/bin/install-php-extensions \
  && mkdir /app
 
