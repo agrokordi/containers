@@ -48,7 +48,6 @@ jobs:
           push: true
           tags: ghcr.io/${{ github.repository_owner }}/http:nginx
 
-
   vpn:
     if: "!contains(github.event.commits[0].message, 'skip:vpn')"
     timeout-minutes: 5

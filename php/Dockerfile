@@ -1,13 +1,9 @@
-FROM php:8.2.8-fpm
+FROM php:8.2.8-fpm-alpine
 
-COPY --from=mlocati/php-extension-installer:2.1.45 /usr/bin/install-php-extensions /usr/local/bin/install-php-extensions
+COPY --from=mlocati/php-extension-installer:2.1.47 /usr/bin/install-php-extensions /usr/local/bin/install-php-extensions
 
 RUN set -xe \
-# && apk add --no-cache unzip \
- && apt-get update \
- && apt-get install -y unzip \
- && apt-get clean \
-#    && apt-get install -y unzip locales \
+ && apk add --no-cache unzip \
  && install-php-extensions opcache sockets pcntl pdo_pgsql pdo_sqlsrv gd decimal bcmath intl zip soap \
  && rm /usr/local/bin/install-php-extensions \
  && mkdir /app
