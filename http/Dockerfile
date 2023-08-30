@@ -1,14 +1,3 @@
-FROM nginx
+FROM caddy:2.7-alpine
 
-ENV DEBIAN_FRONTEND noninteractive
-
-RUN set -xe \
- && rm -r /etc/nginx \
- && mkdir -p /app/public \
- && touch /app/public/index.php \
- && chmod -R u=rwX,g=rX,o=rX /app
-
-COPY config /etc/nginx
-
-ENTRYPOINT ["/usr/sbin/nginx"]
-CMD ["-p", "/etc/nginx", "-c", "/etc/nginx/web.conf"]
+COPY Caddyfile /etc/caddy/Caddyfile

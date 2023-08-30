@@ -46,7 +46,7 @@ jobs:
         with:
           context: ./http
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/http:nginx
+          tags: ghcr.io/${{ github.repository_owner }}/http:caddy
 
   vpn:
     if: "!contains(github.event.commits[0].message, 'skip:vpn')"
