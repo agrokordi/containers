@@ -1,0 +1,49 @@
+{
+	admin off
+	auto_https off
+	ocsp_stapling off
+	persist_config off
+
+	servers :443 {
+		name https
+		protocols h1 h2 h3
+	}
+
+	servers :80 {
+		name http
+		protocols h1
+	}
+
+	frankenphp {
+		{$FRANKENPHP_CONFIG}
+	}
+
+	#order mercure after encode
+	#order vulcain after reverse_proxy
+	order php_server before file_server
+	order php before file_server
+}
+
+:80 {
+	handle /health-check {
+		@goingDown vars {http.shutting_down} true
+		respond @goingDown "going down in {http.time_until_shutdown}" 503
+		respond 200
+	}
+
+	respond 418
+}
+
+:443 {
+	root * /app/public
+
+	skip_log *
+
+	encode zstd gzip
+
+	tls /etc/caddy/cert/tls.crt /etc/caddy/cert/tls.key
+
+	php_server {
+		resolve_root_symlink
+	}
+}
