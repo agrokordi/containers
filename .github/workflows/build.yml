@@ -16,14 +16,14 @@ jobs:
     runs-on: ubuntu-latest
     name: build base image for php
     steps:
-      - uses: actions/checkout@v3
-      - uses: docker/login-action@v2
+      - uses: actions/checkout@v4
+      - uses: docker/login-action@v3
         name: login to ghcr.io
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: docker/build-push-action@v3
+      - uses: docker/build-push-action@v5
         with:
           context: ./php/app
           push: true
@@ -35,14 +35,14 @@ jobs:
     runs-on: ubuntu-latest
     name: build image for openVPN
     steps:
-    - uses: actions/checkout@v3
-    - uses: docker/login-action@v2
+    - uses: actions/checkout@v4
+    - uses: docker/login-action@v3
       name: login to ghcr.io
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    - uses: docker/build-push-action@v3
+    - uses: docker/build-push-action@v5
       with:
         context: ./vpn
         push: true
@@ -57,14 +57,14 @@ jobs:
       KUBECTL_VERSION: "1.27.4"
       KUBECTL_SHA256: "4685bfcf732260f72fce58379e812e091557ef1dfc1bc8084226c7891dd6028f"
     steps:
-    - uses: actions/checkout@v3
-    - uses: docker/login-action@v2
+    - uses: actions/checkout@v4
+    - uses: docker/login-action@v3
       name: login to ghcr.io
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-    - uses: docker/build-push-action@v3
+    - uses: docker/build-push-action@v5
       with:
         context: ./kubectl
         push: true
