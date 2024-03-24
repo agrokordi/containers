@@ -1,6 +1,6 @@
+ARG VERSION
+
+FROM bitnami/kubectl:$VERSION as kubectl
 FROM scratch
 
-ARG VERSION
-ENV KUBECTL_VERSION=${VERSION}
-
-COPY --from=bitnami/kubectl:$KUBECTL_VERSION /opt/bitnami/kubectl/bin/kubectl /medius-kubectl
+COPY --from=kubectl /opt/bitnami/kubectl/bin/kubectl /medius-kubectl
