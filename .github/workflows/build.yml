@@ -54,8 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     name: build image for kubectl
     env:
-      KUBECTL_VERSION: "1.27.4"
-      KUBECTL_SHA256: "4685bfcf732260f72fce58379e812e091557ef1dfc1bc8084226c7891dd6028f"
+      KUBECTL_VERSION: "1.29.1"
     steps:
     - uses: actions/checkout@v4
     - uses: docker/login-action@v3
@@ -70,5 +69,4 @@ jobs:
         push: true
         build-args: |
           KUBECTL_VERSION=${{ env.KUBECTL_VERSION }}
-          KUBECTL_SHA256=${{ env.KUBECTL_SHA256 }}
         tags: ghcr.io/${{ github.repository_owner }}/kubectl,ghcr.io/${{ github.repository_owner }}/kubectl:${{ env.KUBECTL_VERSION }}
