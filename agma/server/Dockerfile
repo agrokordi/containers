@@ -1,4 +1,4 @@
-FROM dunglas/frankenphp:1.0.3-php8.3.2-alpine
+FROM dunglas/frankenphp:1.1.2-php8.3.6-alpine
 
 RUN set -xe && install-php-extensions opcache sockets pcntl pdo_pgsql pdo_sqlsrv gd decimal bcmath intl zip soap
 
