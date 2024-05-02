@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 set -e
 
-docker build --no-cache --pull --platform "linux/arm64" -t ghcr.io/agrokordi/agma:vpn .
+docker build --no-cache --pull --platform "linux/arm64" -t agrokordi/agma:vpn .
