@@ -33,7 +33,7 @@
 		respond 200
 	}
 
-	respond 418
+	redir https://{host}{uri} permanent
 }
 
 :443 {
