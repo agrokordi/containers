@@ -15,8 +15,6 @@
 	}
 
 	frankenphp {
-	    num_threads 10
-
 		{$FRANKENPHP_CONFIG}
 	}
 
@@ -27,6 +25,8 @@
 }
 
 :80 {
+	skip_log *
+
 	handle /health-check {
 		@goingDown vars {http.shutting_down} true
 		respond @goingDown "going down in {http.time_until_shutdown}" 503
@@ -41,7 +41,7 @@
 
 	skip_log *
 
-	encode zstd gzip
+	encode zstd br gzip
 
 	tls /etc/caddy/cert/tls.crt /etc/caddy/cert/tls.key
 
