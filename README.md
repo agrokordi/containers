@@ -1,3 +1,0 @@
-- PHP: [￼`ghcr.io/agrokordi/php:app`￼](https://ghcr.io/agrokordi/php)
-- VPN: [￼`ghcr.io/agrokordi/vpn:app`￼](https://ghcr.io/agrokordi/vpn)
-- KUBECTL: [￼`ghcr.io/agrokordi/kubectl`￼](https://ghcr.io/agrokordi/kubectl)
