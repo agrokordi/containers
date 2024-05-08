@@ -4,14 +4,9 @@
 	ocsp_stapling off
 	persist_config off
 
-	servers :443 {
+	servers :8443 {
 		name https
 		protocols h1 h2 h3
-	}
-
-	servers :80 {
-		name http
-		protocols h1
 	}
 
 	frankenphp {
@@ -24,19 +19,7 @@
 	order php before file_server
 }
 
-:80 {
-	skip_log *
-
-	handle /health-check {
-		@goingDown vars {http.shutting_down} true
-		respond @goingDown "going down in {http.time_until_shutdown}" 503
-		respond 200
-	}
-
-	redir https://{host}{uri} permanent
-}
-
-:443 {
+:8443 {
 	root * /app/public
 
 	skip_log *
