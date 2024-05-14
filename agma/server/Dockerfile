@@ -1,14 +1,15 @@
-FROM dunglas/frankenphp:1.1.4-php8.3.6-alpine
+FROM dunglas/frankenphp:1.1.5-php8.3.7-alpine
 
-RUN set -xe && install-php-extensions opcache sockets pcntl pdo_pgsql pdo_sqlsrv gd decimal bcmath intl zip soap \
- && chmod 777 /etc/caddy
+RUN set -xe \
+ && install-php-extensions opcache sockets pcntl pdo_pgsql pdo_sqlsrv gd decimal bcmath intl zip soap \
+ && setcap -r /usr/local/bin/frankenphp
 
 COPY config/php.ini /usr/local/etc/php/php.ini
-COPY config/Caddyfile /etc/caddy/Caddyfile
+COPY config/Caddyfile /config/Caddyfile
 
 HEALTHCHECK NONE
 
 ENTRYPOINT ["/usr/local/bin/frankenphp"]
-CMD ["run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
+CMD ["run", "--config", "/config/Caddyfile", "--adapter", "caddyfile"]
 
 EXPOSE 8443
