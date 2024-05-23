@@ -1,7 +1,7 @@
-FROM dunglas/frankenphp:1.1.5-php8.3.7-alpine
+FROM dunglas/frankenphp:1.1.5-php8.3.7
 
 RUN set -xe \
- && install-php-extensions opcache sockets pcntl pdo_pgsql pdo_sqlsrv gd decimal bcmath intl zip soap \
+ && install-php-extensions opcache pdo_pgsql pdo_sqlsrv gd decimal bcmath intl zip soap \
  && setcap -r /usr/local/bin/frankenphp
 
 COPY config/php.ini /usr/local/etc/php/php.ini
