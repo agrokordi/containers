@@ -9,12 +9,10 @@
 		protocols h1 h2
 	}
 
-	frankenphp {
-		{$FRANKENPHP_CONFIG}
-	}
+	frankenphp
 
-	#order mercure after encode
-	#order vulcain after reverse_proxy
+	order mercure after encode
+	order vulcain after reverse_proxy
 	order php_server before file_server
 	order php before file_server
 }
@@ -28,7 +26,5 @@
 
 	tls /config/cert/tls.crt /config/cert/tls.key
 
-	php_server {
-		resolve_root_symlink
-	}
+	php_server
 }
