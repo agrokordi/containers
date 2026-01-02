@@ -1,4 +1,3 @@
-#TODO: TRIXIE when MS update pdo_sqlsrv GPG keys
 FROM dunglas/frankenphp:1.11.1-php8.4.16
 
 RUN install-php-extensions opcache pdo_pgsql pdo_sqlsrv pdo_sqlite gd decimal bcmath intl zip soap
