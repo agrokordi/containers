@@ -1,4 +1,4 @@
-FROM dunglas/frankenphp:1.11.1-php8.4.17
+FROM dunglas/frankenphp:1.11.2-php8.4.18
 
 RUN install-php-extensions opcache pdo_pgsql pdo_sqlsrv pdo_sqlite gd decimal bcmath intl zip soap simplexml
 
