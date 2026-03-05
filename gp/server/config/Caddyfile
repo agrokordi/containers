@@ -1,0 +1,26 @@
+{
+	admin off
+	auto_https off
+	ocsp_stapling off
+	persist_config off
+
+	frankenphp
+}
+
+:8080 {
+	handle /health-check {
+		@goingDown vars {http.shutting_down} true
+		respond @goingDown "going down in {http.time_until_shutdown}" 503
+		respond 200
+	}
+
+	root * /app/public
+
+	log_skip *
+
+	encode zstd br gzip
+
+	php_server {
+		resolve_root_symlink false
+	}
+}
