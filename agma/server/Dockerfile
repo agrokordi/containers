@@ -1,7 +1,6 @@
-FROM dunglas/frankenphp:1.12.2-php8.5.5
+FROM dunglas/frankenphp:1.12.2-php8.5.6
 
-RUN install-php-extensions sqlsrv || ACCEPT_EULA=Y apt install -y msodbcsql18 && install-php-extensions pdo_sqlsrv
-RUN install-php-extensions opcache pdo_pgsql pdo_sqlite gd decimal bcmath intl zip soap simplexml
+RUN install-php-extensions opcache pdo_pgsql pdo_sqlite sqlsrv gd decimal bcmath intl zip soap simplexml
 
 COPY config/php.ini /usr/local/etc/php/php.ini
 COPY config/Caddyfile /config/Caddyfile
