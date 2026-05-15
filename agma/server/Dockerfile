@@ -1,6 +1,6 @@
 FROM dunglas/frankenphp:1.12.2-php8.5.6
 
-RUN install-php-extensions opcache pdo_pgsql pdo_sqlite sqlsrv gd decimal bcmath intl zip soap simplexml
+RUN install-php-extensions opcache pdo_pgsql pdo_sqlite pdo_sqlsrv gd decimal bcmath intl zip soap simplexml
 
 COPY config/php.ini /usr/local/etc/php/php.ini
 COPY config/Caddyfile /config/Caddyfile
